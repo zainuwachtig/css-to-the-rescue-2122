@@ -1,0 +1,86 @@
+/* De display */
+div:first-of-type {
+  width: 30em;
+  height: 15em;
+  border-radius: 2em;
+  background-color: var(--background-color);
+  box-shadow: 0 5px 0 #595317;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div:first-of-type div {
+  width: 25em;
+  height: 12em;
+  background-color: black;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* Golfjes */
+/* Dit nog fixen dat die golft als er op wordt geklikt */
+input[type="checkbox"]:checked ~ div:first-of-type div > label {
+  visibility: visible;
+}
+
+div:first-of-type div > label {
+  text-decoration: underline wavy #2f8772;
+  font-size: 4.9em;
+  color: transparent;
+  /* Dan ziet de gebruiker niet dat het een tekst is of per ongeluk selecteert */
+  user-select: none;
+  animation: wavey 0.6s linear infinite;
+  visibility: hidden;
+}
+
+@keyframes wavey {
+  0% {
+    transform: translateX(-7px);
+  }
+
+  100% {
+    transform: translateX(-86px);
+  }
+}
+
+/* Oranje knop */
+button {
+  background-color: var(--background-color);
+  padding: 5em;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 0 var(--box-shadow-color);
+  cursor: pointer;
+  position: relative;
+}
+
+button:hover {
+  box-shadow: 0 12px 0 var(--box-shadow-color);
+  top: -2px;
+}
+
+button:active {
+  box-shadow: none;
+  top: 10px;
+}
+
+/* Licht en donker thema */
+@media (prefers-color-scheme: light) {
+  div:first-of-type {
+    --background-color: #736b1e;
+  }
+  button {
+    --background-color: #ee5c20;
+    --box-shadow-color: #d4501c;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  div:first-of-type {
+  }
+  button {
+    --background-color: #110f6f;
+    --box-shadow-color: #0d0c57;
+  }
+}

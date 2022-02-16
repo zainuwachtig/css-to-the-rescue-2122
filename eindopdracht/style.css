@@ -19,12 +19,17 @@ div:first-of-type div {
 }
 
 /* Golfjes */
-/* Dit nog fixen dat die golft als er op wordt geklikt */
-input[type="checkbox"]:checked ~ div:first-of-type div > label {
+input[type="checkbox"] {
+  /* Opacity naar 0 zodat je nog wel met tab er doorheen kan. */
+  opacity: 0;
+  width: 0;
+}
+
+input[type="checkbox"]:checked ~ div:first-of-type div > p {
   visibility: visible;
 }
 
-div:first-of-type div > label {
+div:first-of-type div > p {
   text-decoration: underline wavy #2f8772;
   font-size: 4.9em;
   color: transparent;
@@ -45,9 +50,10 @@ div:first-of-type div > label {
 }
 
 /* Oranje knop */
-button {
+button,
+label {
   background-color: var(--background-color);
-  padding: 5em;
+  padding: 3em;
   border-radius: 50%;
   border: none;
   box-shadow: 0 10px 0 var(--box-shadow-color);
@@ -55,12 +61,14 @@ button {
   position: relative;
 }
 
-button:hover {
+button:hover,
+label:hover {
   box-shadow: 0 12px 0 var(--box-shadow-color);
   top: -2px;
 }
 
-button:active {
+button:active,
+label:active {
   box-shadow: none;
   top: 10px;
 }
@@ -70,7 +78,8 @@ button:active {
   div:first-of-type {
     --background-color: #736b1e;
   }
-  button {
+  button,
+  label {
     --background-color: #ee5c20;
     --box-shadow-color: #d4501c;
   }
@@ -79,7 +88,8 @@ button:active {
 @media (prefers-color-scheme: dark) {
   div:first-of-type {
   }
-  button {
+  button,
+  label {
     --background-color: #110f6f;
     --box-shadow-color: #0d0c57;
   }

@@ -54,6 +54,7 @@ Ten slotte heb ik nog een deel van css wat opgeschoond en 'ge-refactord'.
 ## Week 4
 
 In de laatste week heb ik nog een graadmeter toegevoegd die zogenaamd het danger level aangeeft. Het leek me wel een leuk idee om dat dan met drie kleuren te doen (van groen naar geel naar rood), maar eerst was het al een aardige opgave om het met 1 kleur te doen. Ik begon met een `::before` en `::after` om de graadmeter te maken, alleen toen kwam ik in de knoop met de vulling (https://codepen.io/zainuwachtig/pen/abVPPVZ?editors=1100) maar kreeg hem uiteindelijk wel aan de praat. Vervolgens heeft Sanne uitgelegd hoe ik de graadmeter met verschillende kleuren kon maken en heb ik daar zelf de drie kleuren in verwerkt (https://codepen.io/zainuwachtig/pen/YzEoZem?editors=1100). Het is me alleen niet gelukt om er een box-shadow op te zetten zoals bij de andere objecten, dit is omdat ik een mask gebruik dus het witte vlak hoort bij het object zelf en staat niet los van de graadmeter.
+
 <img src='./images/meter_leeg.png' width='25%'>
 <img src='./images/meter_rood.png' width='25%'>
 <img src='./images/meter_drie-kleuren.png' width='25%'>

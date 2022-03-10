@@ -18,7 +18,7 @@ body {
 /********************/
 
 header {
-  background-color: #cfc8bc;
+  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   margin-top: -1.25em;
@@ -27,7 +27,7 @@ header {
 header input[type="text"] {
   padding: 0.8em;
   margin: 1em;
-  background-color: #736b1e;
+  background-color: var(--background-color);
   width: 40%;
   border: none;
   color: white;
@@ -55,7 +55,7 @@ header input[type="text"]:hover {
 /********************/
 
 main {
-  background-color: #d9d2c6;
+  background-color: var(--background-color);
   display: flex;
   align-items: start;
   flex-wrap: wrap;
@@ -73,7 +73,7 @@ div:first-of-type {
   height: 15em;
   border-radius: 2em;
   background-color: var(--background-color);
-  box-shadow: 0 5px 0 #595317;
+  box-shadow: 0 5px 0 var(--box-shadow);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,15 +133,15 @@ main > div:nth-of-type(2) {
     circle,
     #000000,
     #000000 24px,
-    #2f8772 0,
-    #2f8772 30px
+    var(--repeating-radial-gradient) 0,
+    var(--repeating-radial-gradient) 30px
   );
   /* background-size: 2px 50%, 100% 2px, 100% 100%;
   background-repeat: no-repeat; */
   width: 15em;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  box-shadow: 0 6px #266e5d;
+  box-shadow: 0 6px var(--box-shadow);
   margin: 2em 4em;
   position: relative;
 }
@@ -151,7 +151,10 @@ main > div:nth-of-type(2)::after {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: conic-gradient(transparent 270deg, #2f8772);
+  background-image: conic-gradient(
+    transparent 270deg,
+    var(--repeating-radial-gradient)
+  );
   border-radius: inherit;
   animation: sonar 5s infinite linear;
 }
@@ -172,9 +175,9 @@ main > div:nth-of-type(2)::after {
 /* Hendel achtergrond */
 label[for="lever-1"] {
   margin: 4em 2em;
-  background-color: #694c41;
-  border: 0.4em solid #2f8772;
-  box-shadow: 0 6px #266e5d;
+  background-color: var(--background-color);
+  border: 0.4em solid var(--border-color);
+  box-shadow: 0 6px var(--box-shadow);
   border-radius: 1em;
   height: 10em;
   width: 4em;
@@ -224,7 +227,7 @@ label[for="lever-1"]::before {
   height: 1.9em;
   width: 0.7em;
   border-radius: 0 0 20% 20%;
-  background-color: lightblue;
+  background-color: var(--background-color);
 
   transform-origin: center calc(100% + 1em);
 }
@@ -256,7 +259,7 @@ main > div:nth-of-type(3) {
   background-image: radial-gradient(
     farthest-side circle at center bottom,
     #f000 50%,
-    grey 50%
+    var(--background-image-color) 50%
   );
 
   border-radius: 50% / 100% 100% 0 0;
@@ -291,7 +294,7 @@ main > div:nth-of-type(3):hover::after {
 }
 
 /********************/
-/* DANGER METER */
+/* LASER */
 /********************/
 
 main > div:nth-of-type(4) {
@@ -299,7 +302,7 @@ main > div:nth-of-type(4) {
   aspect-ratio: 1/1;
   position: relative;
   border-radius: 50%;
-  background-color: #d9d2c6;
+  background-color: var(--background-color);
   transform: rotate(187deg);
   transform-origin: center;
 
@@ -314,12 +317,12 @@ input[id="oranje-knop"]:checked ~ main > div:nth-of-type(4) {
 
 @keyframes shadow {
   from {
-    background-color: #d9d2c6;
-    box-shadow: inset 0 0 #d8cebc;
+    background-color: var(--background-color);
+    box-shadow: inset 0 0 var(--box-shadow);
   }
   to {
-    background-color: #cfc8bc;
-    box-shadow: inset -9px 0px #d8cebc;
+    background-color: var(--background-color);
+    box-shadow: inset -9px 0px var(--box-shadow);
   }
 }
 
@@ -389,22 +392,79 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* Licht en donker thema */
 @media (prefers-color-scheme: light) {
+  header {
+    --background-color: #cfc8bc;
+  }
+  header input[type="text"],
   div:first-of-type {
     --background-color: #736b1e;
+  }
+  main,
+  main > div:nth-of-type(4) {
+    --background-color: #d9d2c6;
+    --box-shadow: #d8cebc;
+  }
+  div:first-of-type {
+    --box-shadow: #595317;
+  }
+  label[for="lever-1"] {
+    --box-shadow: #266e5d;
+  }
+  label[for="lever-1"]::before {
+    --background-color: lightblue;
   }
   button,
   label {
     --background-color: #ee5c20;
     --box-shadow-color: #d4501c;
   }
+  label[for="lever-1"] {
+    --background-color: #694c41;
+    --border-color: #2f8772;
+  }
+  main > div:nth-of-type(2),
+  main > div:nth-of-type(2)::after {
+    --repeating-radial-gradient: #2f8772;
+    --box-shadow: #266e5d;
+  }
+  main > div:nth-of-type(3) {
+    --background-image-color: grey;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
+  header,
+  label[for="lever-1"]::before {
+    --background-color: #2a3036;
+  }
+  header input[type="text"],
   div:first-of-type {
+    --background-color: #16191c;
+  }
+  main,
+  main > div:nth-of-type(4) {
+    --background-color: #3f4850;
+    --box-shadow: #2a3036;
+  }
+  div:first-of-type,
+  label[for="lever-1"],
+  label[for="lever-1"]::before {
+    --box-shadow: black;
   }
   button,
   label {
     --background-color: #110f6f;
     --box-shadow-color: #0d0c57;
+  }
+  label[for="lever-1"] {
+    --background-color: #3f4850;
+    --border-color: #2a3036;
+  }
+  main > div:nth-of-type(2),
+  main > div:nth-of-type(2)::after {
+    --repeating-radial-gradient: #3f4850;
+  }
+  main > div:nth-of-type(3) {
+    --background-image-color: #16191c;
   }
 }
